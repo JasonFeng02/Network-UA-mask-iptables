@@ -8,7 +8,7 @@ iptables -t mangle -A OUTPUT -j IPID_MOD
 iptables -t mangle -A IPID_MOD -d 0.0.0.0/8 -j RETURN
 iptables -t mangle -A IPID_MOD -d 127.0.0.0/8 -j RETURN
 # 由于本校局域网是A类网，所以我将这一条注释掉了，具体要不要注释结合你所在的校园网
-# iptables -t mangle -A IPID_MOD -d 10.0.0.0/8 -j RETURN
+// iptables -t mangle -A IPID_MOD -d 10.0.0.0/8 -j RETURN
 iptables -t mangle -A IPID_MOD -d 172.16.0.0/12 -j RETURN
 iptables -t mangle -A IPID_MOD -d 192.168.0.0/16 -j RETURN
 iptables -t mangle -A IPID_MOD -d 255.0.0.0/8 -j RETURN
@@ -17,7 +17,7 @@ iptables -t mangle -A IPID_MOD -j MARK --set-xmark 0x10/0x10
 # ua2f 改UA
 iptables -t mangle -N ua2f
 # 由于本校局域网是A类网，所以我将这一条注释掉了，具体要不要注释结合你所在的校园网
-# iptables -t mangle -A ua2f -d 10.0.0.0/8 -j RETURN
+// iptables -t mangle -A ua2f -d 10.0.0.0/8 -j RETURN
 iptables -t mangle -A ua2f -d 127.0.0.0/8 -j RETURN
 iptables -t mangle -A ua2f -d 192.168.0.0/16 -j RETURN # 不处理流向保留地址的包
 iptables -t mangle -A ua2f -p tcp --dport 443 -j RETURN # 不处理 https
